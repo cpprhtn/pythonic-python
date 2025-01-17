@@ -1,0 +1,40 @@
+site_name: 「 Pythonic Python 」
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    # - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    primary: black
+    accent: deep-orange
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cpprhtn
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/cpprhtn
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/cpp_rhtn
+
+markdown_extensions:
+  - pymdownx.highlight:
+      use_pygments: true
+      pygments_style: monokai
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tilde
+  - pymdownx.details
+
+repo_url: https://github.com/cpprhtn/pythonic-python
+
+copyright: |
+  &copy; <a href="https://github.com/cpprhtn" target="_blank" rel="noopener">cpprhtn</a>

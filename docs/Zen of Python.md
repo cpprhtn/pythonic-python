@@ -1,4 +1,4 @@
-# Zen of Python
+# **Zen of Python**
 The Zen of Python, by [Tim Peters](https://en.wikipedia.org/wiki/Tim_Peters_(software_engineer))
 ```python
 import this

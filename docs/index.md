@@ -1,4 +1,4 @@
-# Welcome to Pythonic Python Study
+# **About the Study**
 
 ## Pythonic Code란?
 Python의 고유한 메커니즘을 따른 코드를 Pythonic하다고 한다.
