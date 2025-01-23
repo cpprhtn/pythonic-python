@@ -301,18 +301,18 @@ MAX_CONNECTIONS = 100
 def greet(name: str) -> str:
     return f"Hello, {name}"
 
-def alter_map(data: Map) -> None:
-""" 2차원 맵의 데이터를 변경합니다. 직접 참조된 객체를 변경합니다 
-"""
-  for x in map:
-    for y in map[x]:
-      transmute(map[x][y])
+def alter_map(data: dict) -> None:
+    """2차원 맵의 데이터를 변경합니다. 직접 참조된 객체를 변경합니다."""
+    for x in data: 
+        for y in data[x]:
+            data[x][y] = transmute(data[x][y])
+
 
 # 비권장
 def do_something(data):
-  for x in data:
-    for y in data[x]:
-      transmute(data[x][y])
+    for x in data:
+        for y in data[x]:
+            transmute(data[x][y])
 ```
 
 #### 9.2 **전역 변수의 사용**  
