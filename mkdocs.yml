@@ -16,6 +16,13 @@ theme:
     primary: black
     accent: deep-orange
 
+nav:
+  - About: index.md
+  - Zen of Python: Zen of Python.md
+  - PEP8: PEP8.md
+  - 내장함수: Built-in Functions.md
+  - 표준 라이브러리: Standard Library.md
+
 extra:
   social:
     - icon: fontawesome/brands/github

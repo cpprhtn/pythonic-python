@@ -1,4 +1,4 @@
-# Built-in Functions
+# **Built-in Functions**
 
 Python이 기본적으로 제공하는 함수로, 별도의 `import` 없이 바로 사용 가능  
 
