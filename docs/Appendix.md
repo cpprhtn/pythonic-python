@@ -1,8 +1,18 @@
 # **Appendix: Pythonic Best Practices**
 
-이 문서는 Python 프로젝트를 보다 효과적으로 관리하고 Pythonic한 코드를 작성하는 데 도움이 되는 여러 가지 권장 사항을 다룬다.
+Python 프로젝트를 보다 Pythonic하게 유지하기 위해 다음과 같은 권장 사항을 따르면 좋다.
 
-## **1. Python 버전 및 프로젝트 관리 도구 사용**
+- Poetry 또는 UV를 사용하여 Python 버전과 의존성을 관리한다.
+- 타입 힌트를 활용하여 코드의 가독성을 높인다.
+- Linter와 Formatter를 사용하여 코드 스타일을 유지한다.
+- `unittest`보다 `pytest`를 사용하여 간결한 테스트 코드를 작성한다.
+- Pythonic한 코딩 스타일을 유지하기 위해 리스트 컴프리헨션, f-string, 컨텍스트 매니저 등을 적극적으로 활용한다.
+
+이러한 원칙을 따르면 코드의 유지보수성이 향상되고, 협업이 더욱 원활해질 것이다.
+
+---
+
+## **Python 버전 및 프로젝트 관리 도구 사용**
 
 Python 프로젝트를 효율적으로 관리하려면 **Poetry** 또는 **UV**와 같은 Python 버전 및 패키지 관리 도구를 사용하는 것이 좋다.
 
@@ -16,7 +26,7 @@ poetry add requests  # 패키지 추가
 poetry run python main.py  # 가상 환경에서 실행
 ```
 
-## **2. 타입 힌트(Type Hints) 활용**
+## **타입 힌트(Type Hints) 활용**
 
 Python은 동적 타입 언어이지만, **타입 힌트를 활용하면 코드의 가독성을 높이고 버그를 줄일 수 있다.**
 Python 3.5에서 도입.
@@ -33,7 +43,7 @@ def fetch_data(url: str) -> dict[str, str]:
 - 타입 힌트를 사용하면 코드 자동 완성과 정적 분석이 더 효과적으로 동작한다.
 - `mypy` 같은 정적 분석 도구를 사용하면 타입 관련 오류를 미리 감지할 수 있다.
 
-## **3. 코드 스타일 유지: Linter 및 Formatter 사용**
+## **코드 스타일 유지: Linter 및 Formatter 사용**
 
 일관된 코드 스타일을 유지하려면 **Linter**와 **Formatter**를 활용하는 것이 중요하다.
 
@@ -47,7 +57,7 @@ black my_script.py  # 코드 자동 포맷팅
 flake8 my_script.py  # 코드 스타일 검사
 ```
 
-## 4. `unittest` 대신 `pytest` 사용
+## **`unittest` 대신 `pytest` 사용**
 
 Python의 기본 테스트 프레임워크인 `unittest`보다 **`pytest`**를 사용하는 것이 더 간편하고 강력하다.
 
@@ -67,15 +77,3 @@ pytest test_example.py  # 테스트 실행
 
 - `pytest`는 `assert` 문을 활용하여 간결한 테스트 작성이 가능하다.
 - 다양한 플러그인을 통해 테스트 기능을 확장할 수 있다.
-
----
-
-Python 프로젝트를 보다 Pythonic하게 유지하기 위해 다음과 같은 권장 사항을 따르면 좋다.
-
-- Poetry 또는 UV를 사용하여 Python 버전과 의존성을 관리한다.
-- 타입 힌트를 활용하여 코드의 가독성을 높인다.
-- Linter와 Formatter를 사용하여 코드 스타일을 유지한다.
-- `unittest`보다 `pytest`를 사용하여 간결한 테스트 코드를 작성한다.
-- Pythonic한 코딩 스타일을 유지하기 위해 리스트 컴프리헨션, f-string, 컨텍스트 매니저 등을 적극적으로 활용한다.
-
-이러한 원칙을 따르면 코드의 유지보수성이 향상되고, 협업이 더욱 원활해질 것이다.
