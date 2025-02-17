@@ -1,4 +1,6 @@
 # **Zen of Python**
+[PEP 20 – The Zen of Python](https://peps.python.org/pep-0020/)은 Python 설계에 대한 지침 원칙을 20개의 격언으로 간결하게 정리한 내용을 다루며, 그중에 19개의 격언만 기록되어 아래와 같이 `import this`를 통해 확인할 수 있다.
+
 The Zen of Python, by [Tim Peters](https://en.wikipedia.org/wiki/Tim_Peters_(software_engineer))
 ```python
 import this
