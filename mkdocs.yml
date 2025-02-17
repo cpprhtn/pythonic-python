@@ -22,6 +22,8 @@ nav:
   - PEP8: PEP8.md
   - 내장함수: Built-in Functions.md
   - 표준 라이브러리: Standard Library.md
+  - Python 최신버전: Whats new in Python.md
+  - 부록: Appendix.md
 
 extra:
   social:
