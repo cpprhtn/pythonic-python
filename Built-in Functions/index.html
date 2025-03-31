@@ -1,0 +1,1914 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../PEP8/">
+      
+      
+        <link rel="next" href="../Standard%20Library/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.10">
+    
+    
+      
+        <title>내장함수 - 「 Pythonic Python 」</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#built-in-functions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="「 Pythonic Python 」" class="md-header__button md-logo" aria-label="「 Pythonic Python 」" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            「 Pythonic Python 」
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              내장함수
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cpprhtn/pythonic-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Zen%20of%20Python/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Zen of Python
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../PEP8/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PEP8
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  내장함수
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Standard%20Library/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  표준 라이브러리
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Whats%20new%20in%20Python/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Python 최신버전
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Appendix/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  부록
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="「 Pythonic Python 」" class="md-nav__button md-logo" aria-label="「 Pythonic Python 」" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    「 Pythonic Python 」
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cpprhtn/pythonic-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Zen%20of%20Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zen of Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PEP8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PEP8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    내장함수
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    내장함수
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-enumerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. enumerate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. enumerate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (불편함)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      enumerate 사용 (깔끔함)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      filter 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. map
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    <span class="md-ellipsis">
+      map 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reversed" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. reversed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. reversed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reversed" class="md-nav__link">
+    <span class="md-ellipsis">
+      reversed 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. set
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (느림)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      set 사용 (빠름)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      set 사용 (중복제거)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-sorted" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. sorted
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. sorted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (원본 변경됨)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorted" class="md-nav__link">
+    <span class="md-ellipsis">
+      sorted 사용 (원본 유지)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorted-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      sorted 사용 (key)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-zip" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. zip
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. zip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    <span class="md-ellipsis">
+      zip() 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. range
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. range">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      리스트 사용 (메모리 낭비)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    <span class="md-ellipsis">
+      range 사용 (메모리 절약)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. sum()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. sum()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    <span class="md-ellipsis">
+      for문 사용 (느림)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      sum() 사용 (빠름)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. join()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. join()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      문자열 직접 연결 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    <span class="md-ellipsis">
+      join() 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-list-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. 리스트 컴프리헨션 (List Comprehension)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 리스트 컴프리헨션 (List Comprehension)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      for 루프 사용 (느림)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      리스트 컴프리헨션 사용 (빠름)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본 리스트 생성
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    <span class="md-ellipsis">
+      조건 필터링 (if)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      if-else 조건 추가
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      중첩 반복문 (2차원 리스트 생성)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      문자열 리스트 변환
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      딕셔너리 변환 (Dict Comprehension)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      집합 변환 (Set Comprehension)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      제너레이터 표현식 (메모리 최적화)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Standard%20Library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    표준 라이브러리
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Whats%20new%20in%20Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python 최신버전
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    부록
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-enumerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. enumerate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. enumerate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (불편함)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      enumerate 사용 (깔끔함)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      filter 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. map
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    <span class="md-ellipsis">
+      map 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-reversed" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. reversed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. reversed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reversed" class="md-nav__link">
+    <span class="md-ellipsis">
+      reversed 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. set
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (느림)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      set 사용 (빠름)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      set 사용 (중복제거)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-sorted" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. sorted
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. sorted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (원본 변경됨)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorted" class="md-nav__link">
+    <span class="md-ellipsis">
+      sorted 사용 (원본 유지)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorted-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      sorted 사용 (key)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-zip" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. zip
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. zip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      미사용 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    <span class="md-ellipsis">
+      zip() 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. range
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. range">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      리스트 사용 (메모리 낭비)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    <span class="md-ellipsis">
+      range 사용 (메모리 절약)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. sum()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. sum()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    <span class="md-ellipsis">
+      for문 사용 (느림)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      sum() 사용 (빠름)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. join()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. join()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      문자열 직접 연결 (비효율적)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    <span class="md-ellipsis">
+      join() 사용 (효율적)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-list-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. 리스트 컴프리헨션 (List Comprehension)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 리스트 컴프리헨션 (List Comprehension)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      for 루프 사용 (느림)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      리스트 컴프리헨션 사용 (빠름)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      기본 리스트 생성
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    <span class="md-ellipsis">
+      조건 필터링 (if)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      if-else 조건 추가
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      중첩 반복문 (2차원 리스트 생성)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      문자열 리스트 변환
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dict-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      딕셔너리 변환 (Dict Comprehension)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      집합 변환 (Set Comprehension)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      제너레이터 표현식 (메모리 최적화)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="built-in-functions"><strong>Built-in Functions</strong></h1>
+<p>Python이 기본적으로 제공하는 함수로, 별도의 <code>import</code> 없이 바로 사용 가능  </p>
+<h3 id="1-enumerate">1. <strong>enumerate</strong></h3>
+<p>리스트 등의 순회 시 인덱스를 함께 반환하여 코드 가독성을 높임.</p>
+<h4 id="_1">미사용 (불편함)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div>
+<ul>
+<li>i를 따로 선언해야 하며, 반복문 내에서 수동으로 증가해야 함.</li>
+<li>실수로 i를 업데이트하지 않거나, 실수로 덮어쓰면 버그 발생 가능.</li>
+<li>코드가 불필요하게 길어짐.</li>
+</ul>
+<h4 id="enumerate">enumerate 사용 (깔끔함)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>자동으로 인덱스를 관리하므로 i += 1 필요 없음.</li>
+<li>실수로 i를 놓치는 문제가 사라짐.</li>
+<li>코드가 더 짧고 가독성이 좋음.</li>
+</ul>
+<h3 id="2-filter">2. <strong>filter</strong></h3>
+<p>조건에 맞는 요소만 걸러서 새로운 iterable 반환 (메모리를 절약하며 효율적인 필터링 가능)</p>
+<h4 id="_2">미사용 (비효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">even_nums</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">even_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_nums</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>even_nums.append(num)를 통해 리스트를 직접 수정해야 함.</li>
+<li>코드가 길어지고 가독성이 떨어짐.</li>
+<li>명령형(Imperative) 스타일의 코드 → 유지보수가 어려움</li>
+</ul>
+<h4 id="filter">filter 사용 (효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">even_nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_nums</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>더 짧고 간결한 코드 (명령형이 아닌 선언형 스타일)</li>
+<li>새로운 리스트를 직접 만들지 않고, 이터레이터 반환 → 메모리 절약</li>
+<li>읽기 쉽고 유지보수 용이</li>
+</ul>
+<p>But 리스트 컴프리헨션으로도 작성이 가능하며, 이 방식이 더 효율적임.</p>
+<h3 id="3-map">3. <strong>map</strong></h3>
+<p>함수를 각 요소에 적용하여 새로운 iterable 반환 (메모리를 절약하며 효율적인 변환 가능)</p>
+<h4 id="_3">미사용 (비효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+    <span class="n">squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span>  <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squared</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>squared.append(num  2)를 통해 리스트를 직접 수정해야 함.</li>
+<li>코드가 길어지고 가독성이 떨어짐.</li>
+<li>명령형(Imperative) 스타일 → 유지보수가 어려움.</li>
+</ul>
+<h4 id="map">map 사용 (효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>  <span class="mi">2</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squared</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>더 짧고 간결한 코드 (명령형이 아닌 선언형 스타일)</li>
+<li>새로운 리스트를 직접 만들지 않고, 이터레이터 반환 → 메모리 절약</li>
+<li>읽기 쉽고 유지보수 용이</li>
+</ul>
+<p>But 리스트 컴프리헨션으로도 작성이 가능하며, 이 방식이 더 효율적임.</p>
+<h3 id="4-reversed">4. <strong>reversed</strong></h3>
+<p>순서를 거꾸로 뒤집은 iterator 반환 (효율적이고 메모리 절약 가능)</p>
+<h4 id="_4">미사용 (비효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">reversed_nums</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">reversed_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reversed_nums</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>for 루프를 사용하여 인덱스 기반 접근 (가독성 낮음)</li>
+<li>리스트를 새로 생성 (reversed_nums.append(nums[i])) → 메모리 낭비</li>
+<li>코드가 복잡하고 직관적이지 않음</li>
+</ul>
+<h4 id="reversed">reversed 사용 (효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">reversed_nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reversed_nums</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>더 짧고 간결한 코드</li>
+<li>reversed()는 이터레이터 반환 → 메모리 절약</li>
+<li>가독성이 뛰어나고 유지보수 용이</li>
+</ul>
+<h3 id="5-set">5. <strong>set</strong></h3>
+<p><code>list</code>에서 특정 값 존재 여부를 확인할 때 O(n) 시간이 걸리지만,<br />
+<code>set</code>을 사용하면 O(1)~O(log n) 시간만 소요됨.  </p>
+<h4 id="_5">미사용 (느림)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">if</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>  <span class="c1"># O(n)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;있음&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>in 연산자는 리스트를 처음부터 끝까지 순회하며 검사 → O(n)</li>
+<li>리스트 크기가 커질수록 탐색 시간이 비례하여 증가</li>
+<li>최악의 경우 리스트 끝까지 확인해야 함</li>
+</ul>
+<h4 id="set"><code>set</code> 사용 (빠름)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="k">if</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>  <span class="c1"># O(1)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;있음&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>set은 해시 테이블(Hash Table) 을 사용하여 평균 O(1) 시간에 탐색 가능</li>
+<li>리스트처럼 순차 탐색할 필요 없음</li>
+<li>대용량 데이터 탐색 시 큰 성능 차이 발생</li>
+</ul>
+<h4 id="set_1"><code>set</code> 사용 (중복제거)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">unique_nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_nums</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4, 5]</span>
+</code></pre></div>
+<ul>
+<li>set을 이용하면 O(n) 시간 내에 중복을 제거할 수 있음</li>
+</ul>
+<h3 id="6-sorted">6. <strong>sorted</strong></h3>
+<p>정렬된 리스트를 반환하지만 원본 리스트를 변경하지 않음</p>
+<h4 id="_6">미사용 (원본 변경됨)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">nums_copy</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[:]</span> <span class="c1"># 원본을 복사</span>
+<span class="n">nums_copy</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums_copy</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>sort()는 리스트 자체를 변경 (in-place 정렬)</li>
+<li>원본 리스트(nums)를 유지하려면 복사본을 만들어야 함</li>
+<li>코드가 길어지고 메모리 사용량 증가</li>
+</ul>
+<h4 id="sorted">sorted 사용 (원본 유지)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">sorted_nums</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="c1"># 새로운 정렬된 리스트 반환</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_nums</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>sorted()는 새로운 리스트를 반환 (원본 유지)</li>
+<li>한 줄로 간결하게 사용 가능</li>
+<li>메모리 효율적 (리스트 복사 없이 동작)</li>
+</ul>
+<h4 id="sorted-key">sorted 사용 (key)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+<span class="n">sorted_words</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>  <span class="c1"># 길이 기준 정렬</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_words</span><span class="p">)</span>  <span class="c1"># [&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;]</span>
+</code></pre></div>
+<ul>
+<li>sorted()는 key 옵션을 사용하여 커스텀 정렬 가능</li>
+</ul>
+<h3 id="7-zip">7. <strong>zip</strong></h3>
+<p>여러 개의 iterable을 순서대로 묶어 튜플의 iterator를 생성</p>
+<h4 id="_7">미사용 (비효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)):</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">list2</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># [(1, &#39;a&#39;), (2, &#39;b&#39;), (3, &#39;c&#39;)]</span>
+</code></pre></div>
+<ul>
+<li>len(list1)을 호출해 길이를 미리 확인해야 함</li>
+<li>리스트의 길이가 다를 경우 IndexError 발생 가능</li>
+<li>코드가 길고 가독성이 떨어짐</li>
+</ul>
+<h4 id="zip">zip() 사용 (효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># [(1, &#39;a&#39;), (2, &#39;b&#39;), (3, &#39;c&#39;)]</span>
+</code></pre></div>
+<ul>
+<li>더 짧고 직관적인 코드</li>
+<li>리스트의 길이가 달라도 더 짧은 쪽에 맞춰 자동 종료</li>
+<li>zip() 자체는 이터레이터이므로 메모리 효율적</li>
+</ul>
+<h3 id="8-range">8. <strong>range</strong></h3>
+<p>Python 2에서는 <code>range()</code>가 리스트를 반환하지만,<br />
+Python 3에서는 <code>range()</code>가 이터레이터 반환하여 메모리 사용량이 적음.  </p>
+<h4 id="_8">리스트 사용 (메모리 낭비)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">106</span><span class="p">))</span>  <span class="c1"># 10^6개의 숫자를 메모리에 저장 O(n)</span>
+</code></pre></div>
+<ul>
+<li>list(range(106))은 100만 개의 정수를 한꺼번에 리스트에 저장 → 메모리 낭비</li>
+<li>한 번만 사용할 숫자 목록이라면 불필요한 메모리 점유</li>
+</ul>
+<h4 id="range">range 사용 (메모리 절약)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">106</span><span class="p">)</span>  <span class="c1"># 이터레이터 사용 O(1) → 메모리 절약</span>
+</code></pre></div>
+<ul>
+<li>range(106)은 메모리에 모든 숫자를 저장하지 않고 필요할 때 생성</li>
+<li>이터레이터처럼 동작하여 메모리를 절약</li>
+<li>대량의 데이터 처리 시 성능 최적화 가능</li>
+</ul>
+<h3 id="9-sum">9. <strong>sum()</strong></h3>
+<p><code>sum()</code>은 C에서 최적화되어 있어 for-loop보다 빠름.  </p>
+<h4 id="for">for문 사용 (느림)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
+</code></pre></div>
+<ul>
+<li>for 문을 사용하면 반복문을 한 번씩 돌면서 값을 하나하나 더해가야 하므로 시간이 오래 걸림 (Python level)</li>
+</ul>
+<h4 id="sum">sum() 사용 (빠름)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+</code></pre></div>
+<ul>
+<li>C로 최적화되어 있어 빠름.</li>
+</ul>
+<h3 id="10-join">10. <strong>join()</strong></h3>
+<p>리스트에서 문자열을 반복문으로 연결하면 O(n^2) 시간이 걸리지만,<br />
+<code>join()</code>을 사용하면 O(n) 으로 최적화됨.  </p>
+<h4 id="_9">문자열 직접 연결 (비효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">]</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">sentence</span> <span class="o">+=</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>  <span class="c1"># O(n^2) 시간 소요</span>
+</code></pre></div>
+<ul>
+<li>+=로 문자열을 연결하면 매번 새로운 문자열 객체가 생성되므로, O(n^2)의 시간 복잡도가 발생.</li>
+</ul>
+<h4 id="join">join() 사용 (효율적)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">]</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>  <span class="c1"># O(n) 시간 소요</span>
+</code></pre></div>
+<ul>
+<li>불필요한 문자열 복사를 피하고, 메모리 효율적.</li>
+</ul>
+<h3 id="11-list-comprehension">11. <strong>리스트 컴프리헨션 (List Comprehension)</strong></h3>
+<p>리스트 컴프리헨션은 for 루프(+ map, filter)보다 더 간결하고 빠르게 리스트를 생성할 수 있는 방법. 내부적으로 최적화된 방식으로 동작하여 성능 향상에 기여.</p>
+<h4 id="for_1">for 루프 사용 (느림)</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">106</span><span class="p">):</span>
+    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For-loop 실행 시간:&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="_10">리스트 컴프리헨션 사용 (빠름)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">106</span><span class="p">)]</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List Comprehension 실행 시간:&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+</code></pre></div>
+<p>결과: 리스트 컴프리헨션이 1.5~2배 빠름  </p>
+<h4 id="_11">기본 리스트 생성</h4>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>  <span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</code></pre></div>
+<h4 id="if">조건 필터링 (<code>if</code>)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evens</span><span class="p">)</span>  <span class="c1"># [0, 2, 4, 6, 8]</span>
+</code></pre></div>
+<h4 id="if-else"><code>if-else</code> 조건 추가</h4>
+<div class="highlight"><pre><span></span><code><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;짝수&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;홀수&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>  <span class="c1"># [&#39;짝수&#39;, &#39;홀수&#39;, &#39;짝수&#39;, &#39;홀수&#39;, ...]</span>
+</code></pre></div>
+<h4 id="2">중첩 반복문 (2차원 리스트 생성)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>  <span class="c1"># [(0, 0), (0, 1), (0, 2), (1, 0), ...]</span>
+</code></pre></div>
+<h4 id="_12">문자열 리스트 변환</h4>
+<div class="highlight"><pre><span></span><code><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">]</span>
+<span class="n">uppercase_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uppercase_words</span><span class="p">)</span>  <span class="c1"># [&#39;HELLO&#39;, &#39;WORLD&#39;, &#39;PYTHON&#39;]</span>
+</code></pre></div>
+<h4 id="dict-comprehension">딕셔너리 변환 (Dict Comprehension)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">squares_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares_dict</span><span class="p">)</span>  <span class="c1"># {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</span>
+</code></pre></div>
+<h4 id="set-comprehension">집합 변환 (Set Comprehension)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">unique_squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_squares</span><span class="p">)</span>  <span class="c1"># {0, 1, 4, 9}</span>
+</code></pre></div>
+<h4 id="_13">제너레이터 표현식 (메모리 최적화)</h4>
+<p><div class="highlight"><pre><span></span><code><span class="n">squares_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">106</span><span class="p">))</span>  <span class="c1"># 리스트 대신 () 사용</span>
+</code></pre></div>
+- 리스트 컴프리헨션 <code>[x*x for x in range(106)]</code> → O(n) 메모리 사용<br />
+- 제너레이터 표현식 <code>(x*x for x in range(106))</code> → O(1) 메모리 사용  </p>
+<p>대량 데이터 처리 시 리스트 대신 제너레이터 표현식을 사용하면 메모리를 절약할 수 있음</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; <a href="https://github.com/cpprhtn" target="_blank" rel="noopener">cpprhtn</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/cpprhtn" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/cpprhtn" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://instagram.com/cpp_rhtn" target="_blank" rel="noopener" title="instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
